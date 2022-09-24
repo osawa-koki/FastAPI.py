@@ -13,12 +13,6 @@
 
 
 ```bash
-# Dockerイメージのビルド
-docker-compose build
-
-
-
-
+pip install -r requirements.txt
 ```
-
 
