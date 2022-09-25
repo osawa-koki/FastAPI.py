@@ -1,5 +1,5 @@
 from typing import Union
-from fastapi import FastAPI, Header, Cookie, Response
+from fastapi import *
 from pydantic import BaseModel
 from fastapi.responses import *
 
@@ -12,6 +12,10 @@ class pokemonStruct(BaseModel):
     type1: str
     type2: str
 
+
+@app.get("/")
+def read_root():
+    return PlainTextResponse("INDEX")
 
 @app.get("/pokemon/{name:path}")
 def read_root(name: str):
@@ -55,4 +59,23 @@ def read_root():
 @app.get("/file")
 async def read_root():
     return FileResponse("data/pika.jpeg")
+
+
+
+# ##### ##### ##### ##### ##### ##### ##### ##### #####
+# ##### ##### ##### 例外処理 Yeah!!!!! ##### ##### #####
+# ##### ##### ##### ##### ##### ##### ##### ##### #####
+
+
+from fastapi.exceptions import RequestValidationError
+
+
+@app.get("/error")
+async def read_root():
+    raise HTTPException(status_code=444, detail="I am an error!!!")
+    return PlainTextResponse("ex")
+
+@app.exception_handler(RequestValidationError)
+def validation_exception_handler(_a, _b):
+    return PlainTextResponse("It's RequestValidationError...")
 
