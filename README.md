@@ -14,6 +14,8 @@ docker run -it --name fastapi-sample -p 8080:8000 fastapi-sample
 
 <http://localhost:8080>へアクセス。  
 
+RESTfulAPIのテストは[postman](https://www.postman.com/)で♪  
+
 ## 環境構築手順
 
 ```shell
