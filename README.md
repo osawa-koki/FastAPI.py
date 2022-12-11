@@ -19,3 +19,7 @@ docker run -it --name fastapi-sample -p 8080:8000 fastapi-sample
 ```shell
 pip install -r requirements.txt
 ```
+
+## 参考文献
+
+- [公式ドキュメント](https://fastapi.tiangolo.com/ja/)
