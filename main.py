@@ -5,13 +5,11 @@ from fastapi.responses import *
 
 app = FastAPI()
 
-
 class pokemonStruct(BaseModel):
     number: int
     name: str
     type1: str
     type2: str
-
 
 @app.get("/")
 def read_root():
@@ -33,16 +31,13 @@ def read_rott(response: Response, user_identifier: Union[str, None] = Cookie(def
         response.set_cookie(key="user_identifier", value="cookie_value_hogehoge")
         return "cookie set..."
 
-
 @app.get("/html", response_class=HTMLResponse)
 def read_root():
     return HTMLResponse(content="<html><title>FastAPI</title><body><h1>Hello World</h1></body></html>", status_code=200)
 
-
 @app.get("/plain", response_class=PlainTextResponse)
 def read_root():
     return "PLAIN TEXT"
-
 
 @app.get("/redirect", response_class=RedirectResponse)
 def read_root():
@@ -55,20 +50,15 @@ def read_root():
             yield from binary
     return StreamingResponse(iterfile(), media_type="image/jpeg")
 
-
 @app.get("/file")
 async def read_root():
     return FileResponse("data/pika.jpeg")
-
-
 
 # ##### ##### ##### ##### ##### ##### ##### ##### #####
 # ##### ##### ##### 例外処理 Yeah!!!!! ##### ##### #####
 # ##### ##### ##### ##### ##### ##### ##### ##### #####
 
-
 from fastapi.exceptions import RequestValidationError
-
 
 @app.get("/error")
 async def read_root():
@@ -78,4 +68,3 @@ async def read_root():
 @app.exception_handler(RequestValidationError)
 def validation_exception_handler(_a, _b):
     return PlainTextResponse("It's RequestValidationError...")
-
