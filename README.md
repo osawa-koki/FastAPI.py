@@ -1,4 +1,4 @@
-# FastAPI.py
+# simple-FastAPI.py
 
 FastAPIの動作をテストするためのプログラム。  
 
