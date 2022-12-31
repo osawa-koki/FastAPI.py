@@ -55,6 +55,19 @@ pip install -r requirements.txt
 - [スズメ](https://frame-illust.com/?p=13680)
 - [キツネ](https://frame-illust.com/?p=9584)
 
+## デプロイ設定(Render.com)
+
+| キー | バリュー |
+| ---- | ---- |
+| Name | simple-fastapi-server |
+| Region | Oregon(US West) |
+| Branch | main |
+| Root Directory |  |
+| Environment | Docker |
+| Dockerfile Path | ./Dockerfile |
+| Docker Build Context Directory |  |
+| Docker Command |  |
+
 ## 参考文献
 
 - [公式ドキュメント](https://fastapi.tiangolo.com/ja/)
