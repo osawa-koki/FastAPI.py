@@ -9,7 +9,7 @@ class pokemonStruct(BaseModel):
     number: int
     name: str
     type1: str
-    type2: str
+    type2: str = None
 
 @app.get("/")
 def read_root():
