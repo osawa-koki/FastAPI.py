@@ -9,16 +9,16 @@ FastAPIの動作をテストするためのプログラム。
 docker build -t fastapi-sample .
 
 # Dockerコンテナを実行
-docker run -it --name fastapi-sample -p 8080:8000 fastapi-sample
+docker run -it --name fastapi-sample -p 80:80 fastapi-sample
 ```
 
 一行で書くなら、、、  
 
 ```shell
-docker build -t fastapi-sample . && docker run -it --name fastapi-sample -p 8080:8000 fastapi-sample
+docker build -t fastapi-sample . && docker run -it --name fastapi-sample -p 80:80 fastapi-sample
 ```
 
-<http://localhost:8080>へアクセス。  
+<http://localhost:80>へアクセス。  
 
 RESTfulAPIのテストは[postman](https://www.postman.com/)で♪  
 
