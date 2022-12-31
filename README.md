@@ -5,6 +5,11 @@ FastAPIの動作をテストするためのプログラム。
 ## 実行方法
 
 ```shell
+# デバグ用
+uvicorn main:app --host localhost --port 80 --reload
+```
+
+```shell
 # Dockerファイルをビルド
 docker build -t fastapi-sample .
 
@@ -22,9 +27,25 @@ docker build -t fastapi-sample . && docker run -it --name fastapi-sample -p 80:8
 
 RESTfulAPIのテストは[postman](https://www.postman.com/)で♪  
 
+---
+
+以下のパスにアクセスして動作を確認。  
+
+- /
+- /pokemon/{name}
+- / (POST | number,name,type1,type2をセットした状態で)
+- /cookie
+- /html
+- /plain
+- /redirect
+- /stream/tako
+- /file
+- /error
+
 ## 環境構築手順
 
 ```shell
+# Dockerなら不要
 pip install -r requirements.txt
 ```
 
