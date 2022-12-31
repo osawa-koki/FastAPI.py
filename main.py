@@ -43,16 +43,16 @@ def read_root():
 def read_root():
     return RedirectResponse("/pokemon/chikorita")
 
-@app.get("/stream")
-def read_root():
-    def iterfile():
-        with open("data/moku.jpeg", mode="rb") as binary:
+@app.get("/stream/{name}")
+def read_root(name: str):
+    def iterfile(name):
+        with open("contents/{}.png".format(name), mode="rb") as binary:
             yield from binary
-    return StreamingResponse(iterfile(), media_type="image/jpeg")
+    return StreamingResponse(iterfile(name), media_type="image/jpeg")
 
 @app.get("/file")
 async def read_root():
-    return FileResponse("data/pika.jpeg")
+    return FileResponse("contents/tako.png")
 
 # ##### ##### ##### ##### ##### ##### ##### ##### #####
 # ##### ##### ##### 例外処理 Yeah!!!!! ##### ##### #####
